@@ -9,13 +9,19 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
+    public function up()
     {
         Schema::create('messages', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('email');
+            $table->text('message');
+            $table->string('image')->nullable();
+            $table->integer('status')->default(1); // 1: Belum dicek, 2: Telah dibaca, 3: Sudah dibalas
             $table->timestamps();
         });
     }
+
 
     /**
      * Reverse the migrations.
