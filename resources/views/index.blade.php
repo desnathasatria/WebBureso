@@ -1,130 +1,162 @@
-<!DOCTYPE html>
-<html lang="id">
+@extends('layouts.app')
 
-<head>
-    <meta charset="utf-8">
-    <title>Warung Bureso</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="" name="keywords">
-    <meta content="" name="description">
-    <link href="{{ asset('assets/img/logo.png') }}" rel="icon">
+@section('title', 'Home - Warung Bu Reso')
 
-    <!-- Google Web Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:slnt,wght@-10..0,100..900&display=swap" rel="stylesheet">
+@section('content')
 
-    <!-- Icon Font Stylesheet -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
-
-    <!-- Libraries Stylesheet -->
-    <link href="{{ asset('assets/lib/animate/animate.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/lib/lightbox/css/lightbox.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/lib/owlcarousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"/>
-
-    <!-- Customized Bootstrap Stylesheet -->
-    <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
-
-    <!-- Template Stylesheet -->
-    <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
-</head>
-
-<body>
-    <!-- Spinner Start -->
-    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
-            <span class="sr-only">Loading...</span>
+<!-- Modal Search Start -->
+<div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content rounded-0">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Cari Produk atau Informasi</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body d-flex align-items-center bg-primary">
+                <div class="input-group w-75 mx-auto d-flex">
+                    <input type="search" class="form-control p-3" placeholder="Cari produk atau info..." aria-describedby="search-icon-1">
+                    <span id="search-icon-1" class="btn bg-light border input-group-text p-3">
+                        <i class="fa fa-search"></i>
+                    </span>
+                </div>
+            </div>
         </div>
     </div>
-    <!-- Spinner End -->
+</div>
+<!-- Modal Search End -->
 
-    <!-- Topbar Start -->
-    <div class="container-fluid topbar px-0 px-lg-4 bg-light py-2 d-none d-lg-block">
-        <div class="container">
-            <div class="row gx-0 align-items-center">
-                <div class="col-lg-8 text-center text-lg-start mb-lg-0">
-                    <div class="d-flex flex-wrap">
-                        <div class="ps-3">
-                            <a href="mailto:bureso@gmail.com" class="text-muted small">
-                                <i class="fas fa-envelope text-primary me-2"></i>bureso@gmail.com
-                            </a>
+<!-- Carousel Start -->
+<div class="header-carousel owl-carousel">
+    <div class="header-carousel-item bg-primary">
+        <div class="carousel-caption">
+            <div class="container">
+                <div class="row g-4 align-items-center">
+                    <div class="col-lg-7 animated fadeInLeft">
+                        <div class="text-sm-center text-md-start">
+                            <h4 class="text-white text-uppercase fw-bold mb-4">Selamat Datang di Warung Bu Reso Kertosono</h4>
+                            <h1 class="text-white display-4 mb-4">Rasakan Cita Rasa Tradisional dengan Sentuhan Modern!</h1>
+                            <p class="text-white mb-4">
+                                Nikmati beragam menu lezat, suasana nyaman, dan pelayanan ramah hanya di Warung Bu Reso Kertosono.
+                                Kami hadir untuk memanjakan selera Anda dengan masakan khas rumahan yang tak terlupakan.
+                            </p>
+                            <div class="d-flex justify-content-center justify-content-md-start flex-shrink-0 mb-4">
+                                <a class="btn btn-light rounded-pill py-3 px-4 px-md-5 me-2" href="#">
+                                    <i class="fas fa-play-circle me-2"></i> Lihat Video Profil
+                                </a>
+                                <a class="btn btn-outline-light rounded-pill py-3 px-4 px-md-5" href="#">Jelajahi Menu</a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-4 text-center text-lg-end">
-                    <div class="d-flex justify-content-end">
-                        <div class="d-flex border-end border-primary pe-3">
-                            <a class="btn p-0 text-primary me-3" href="#"><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn p-0 text-primary me-3" href="#"><i class="fab fa-instagram"></i></a>
+                    <div class="col-lg-5 animated fadeInRight">
+                        <div class="carousel-img" style="object-fit: cover;">
+                            <img src="{{ asset('assets/img/carousel-image.jpg') }}" class="img-fluid w-100" alt="Profil Warung Bu Reso Kertosono">
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Topbar End -->
+</div>
+<!-- Carousel End -->
 
-    <!-- Navbar & Hero Start -->
-    <div class="container-fluid nav-bar px-0 px-lg-4 py-lg-0">
-        <div class="container">
-            <nav class="navbar navbar-expand-lg navbar-light">
-                <a href="#" class="navbar-brand p-0">
-                    <table>
-                        <tr>
-                            <td>
-                                <img src="{{ asset('assets/img/logo.png') }}" alt="Logo">
-                            </td>
-                            <td>
-                                <h1 class="text-primary mb-0">Warung Bureso</h1>
-                            </td>
-                        </tr>
-                    </table>
-                </a>
-
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-                    <span class="fa fa-bars"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarCollapse">
-                    <div class="navbar-nav mx-0 mx-lg-auto">
-                        <a href="{{ url('/') }}" class="nav-item nav-link {{ Request::is('/') ? 'active' : '' }}">Home</a>
-                        <a href="{{ url('produk') }}" class="nav-item nav-link {{ Request::is('produk') ? 'active' : '' }}">Produk</a>
-                        <a href="{{ url('kontak') }}" class="nav-item nav-link {{ Request::is('kontak') ? 'active' : '' }}">Kontak</a>
+<!-- Start Gallery Section -->
+<div class="container-fluid gallery py-5">
+    <div class="container py-5">
+        <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
+            <h4 class="text-primary">Galeri Warung Bu Reso</h4>
+            <h1 class="display-4 mb-4">Kenangan Lezat Kami</h1>
+            <p class="mb-0">
+                Berikut adalah momen spesial dari Warung Bu Reso Kertosono yang layak untuk dikenang dan diabadikan.
+            </p>
+        </div>
+        <div class="row g-4 justify-content-center">
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
+                <div class="gallery-item">
+                    <div class="gallery-img">
+                        <img src="{{ asset('assets/img/gallery-1.jpg') }}" class="img-fluid w-100 rounded" alt="Menu Spesial">
+                    </div>
+                    <div class="gallery-content p-4">
+                        <h4 class="mb-2">Menu Spesial</h4>
+                        <p class="mb-2">Menu spesial dengan cita rasa istimewa dari dapur Warung Bu Reso.</p>
                     </div>
                 </div>
-                <div class="d-none d-xl-flex flex-shrink-0 ps-4">
-                    <a href="#" class="btn btn-light btn-lg-square rounded-circle position-relative wow tada" data-wow-delay=".9s">
-                        <i class="fa fa-phone-alt fa-2x"></i>
-                        <div class="position-absolute" style="top: 7px; right: 12px;">
-                            <span><i class="fa fa-comment-dots text-secondary"></i></span>
-                        </div>
-                    </a>
-                    <div class="d-flex flex-column ms-3">
-                        <span>Hubungi Kami</span>
-                        <a href="tel:+6281252776657"><span class="text-dark">081252776657</span></a>
-                    </div>
-                </div>
-            </nav>
+            </div>
+            <!-- Additional Gallery Items -->
         </div>
     </div>
-    <!-- Navbar & Hero End -->
+</div>
+<!-- End Gallery Section -->
 
-    <!-- Footer Start -->
-    <footer class="bg-primary text-white text-center py-3">
-        <div class="container">
-            <p class="mb-0">&copy; 2024 Warung Bureso. Semua Hak Dilindungi.</p>
+<!-- Image Modal -->
+<div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="imageModalLabel"></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <img src="" class="img-fluid w-100" id="modalImage" alt="">
+            </div>
         </div>
-    </footer>
-    <!-- Footer End -->
+    </div>
+</div>
 
-    <!-- JavaScript Files -->
-    <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
-    <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ asset('assets/lib/lightbox/js/lightbox.min.js') }}"></script>
-    <script src="{{ asset('assets/lib/owlcarousel/owl.carousel.min.js') }}"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox.umd.js"></script>
-    <script src="{{ asset('assets/js/main.js') }}"></script>
-</body>
+<!-- Service Start -->
+<div class="container-fluid service py-5">
+    <div class="container py-5">
+        <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
+            <h4 class="text-primary">Layanan Warung Bu Reso</h4>
+            <h1 class="display-4 mb-4">Layanan Unggulan Kami</h1>
+            <p class="mb-0">Dari makan di tempat hingga layanan pesan antar, kami siap melayani Anda dengan sepenuh hati.</p>
+        </div>
+        <div class="row g-4 justify-content-center">
+            <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.2s">
+                <div class="service-item">
+                    <div class="service-img">
+                        <img src="{{ asset('assets/img/service-1.jpg') }}" class="img-fluid rounded-top w-100" alt="Makan di Tempat">
+                    </div>
+                    <div class="service-content p-4">
+                        <div class="service-content-inner">
+                            <a href="#" class="d-inline-block h4 mb-4">Makan di Tempat</a>
+                            <p class="mb-4">Nikmati suasana nyaman dan bersantap langsung di Warung Bu Reso.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.4s">
+                <div class="service-item">
+                    <div class="service-img">
+                        <img src="{{ asset('assets/img/service-2.jpg') }}" class="img-fluid rounded-top w-100" alt="Pesan Antar">
+                    </div>
+                    <div class="service-content p-4">
+                        <div class="service-content-inner">
+                            <a href="#" class="d-inline-block h4 mb-4">Pesan Antar</a>
+                            <p class="mb-4">Kami siap mengantarkan pesanan Anda ke lokasi Anda.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Additional Service Items -->
+        </div>
+    </div>
+</div>
+<!-- Service End -->
 
-</html>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var imageModal = document.getElementById('imageModal');
+        imageModal.addEventListener('show.bs.modal', function(event) {
+            var button = event.relatedTarget;
+            var imgSrc = button.getAttribute('data-img-src');
+            var imgTitle = button.getAttribute('data-img-title');
+            var modalTitle = imageModal.querySelector('.modal-title');
+            var modalImage = document.getElementById('modalImage');
+
+            modalTitle.textContent = imgTitle;
+            modalImage.src = imgSrc;
+        });
+    });
+</script>
+
+@endsection

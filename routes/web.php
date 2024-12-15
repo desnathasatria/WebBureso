@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MessageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +17,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('index');
 });
+
+Route::get('/profile', function () {
+    return view('profile');
+});
+
+Route::get('/contact', function () {
+    return view('contact');
+});
+Route::get('/get_data_message', [MessageController::class, 'getDataMessage'])->name('messages.get');
+Route::post('/insert_message', [MessageController::class, 'store'])->name('messages.store');
+
